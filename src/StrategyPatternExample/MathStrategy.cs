@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace StrategyPatternExample
 {
     public class MathStrategy : IMathStrategy
     {
-        private readonly IMathOperator[] _operators;
+        private readonly IEnumerable<IMathOperator> _operators;
 
-        public MathStrategy(IMathOperator[] operators)
+        public MathStrategy(IEnumerable<IMathOperator> operators)
         {
             _operators = operators;
         }

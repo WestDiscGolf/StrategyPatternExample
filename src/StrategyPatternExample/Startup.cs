@@ -11,16 +11,10 @@ namespace StrategyPatternExample
             services.AddMvc();
 
             services.AddScoped<IMathStrategy, MathStrategy>();
-            services.AddScoped<AddOperator>();
-            services.AddScoped<SubtractOperator>();
-            services.AddScoped<MultipleOperator>();
-            services.AddScoped<DivideOperator>();
-            services.AddScoped<IMathStrategyFactory, MathStrategyFactory>();
-            services.AddScoped<IMathOperator[]>(provider =>
-            {
-                var factory = (IMathStrategyFactory)provider.GetService(typeof(IMathStrategyFactory));
-                return factory.Create();
-            });
+            services.AddScoped<IMathOperator, AddOperator>();
+            services.AddScoped<IMathOperator, SubtractOperator>();
+            services.AddScoped<IMathOperator, MultipleOperator>();
+            services.AddScoped<IMathOperator, DivideOperator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
