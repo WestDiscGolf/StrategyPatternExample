@@ -2,7 +2,7 @@
 
 namespace StrategyPatternExample
 {
-    public class DivideOperator : IMathOperator
+    public class DivideOperator : IMathOperator<Operator>
     {
         public Operator Operator => Operator.Divide;
 

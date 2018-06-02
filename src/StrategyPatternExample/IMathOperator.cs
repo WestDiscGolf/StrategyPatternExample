@@ -1,8 +1,10 @@
-﻿namespace StrategyPatternExample
+﻿using System;
+
+namespace StrategyPatternExample
 {
-    public interface IMathOperator
+    public interface IMathOperator<out T> where T : Enum
     {
-        Operator Operator { get; }
+        T Operator { get; }
 
         int Calculate(int a, int b);
     }

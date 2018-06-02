@@ -1,6 +1,6 @@
 ﻿namespace StrategyPatternExample
 {
-    public class MultipleOperator : IMathOperator
+    public class MultipleOperator : IMathOperator<Operator>
     {
         public Operator Operator => Operator.Multiple;
 
