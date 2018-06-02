@@ -2,7 +2,7 @@
 {
     public interface IMathOperator
     {
-        Operator Operator { get; }
+        bool IsApplicable(Operator op);
 
         int Calculate(int a, int b);
     }

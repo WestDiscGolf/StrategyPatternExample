@@ -15,7 +15,15 @@ namespace StrategyPatternExample
 
         public int Calculate(int a, int b, Operator op)
         {
-            return _operators.FirstOrDefault(x => x.Operator == op)?.Calculate(a, b) ?? throw new ArgumentNullException(nameof(op));
+            foreach (var @operator in _operators)
+            {
+                if (@operator.IsApplicable(op))
+                {
+                    return @operator.Calculate(a, b);
+                }
+            }
+
+            throw new ArgumentNullException(nameof(op));
         }
     }
 }

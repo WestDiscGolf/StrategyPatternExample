@@ -2,7 +2,10 @@
 {
     public class MultipleOperator : IMathOperator
     {
-        public Operator Operator => Operator.Multiple;
+        public bool IsApplicable(Operator op)
+        {
+            return op == Operator.Multiple;
+        }
 
         public int Calculate(int a, int b) => a * b;
     }

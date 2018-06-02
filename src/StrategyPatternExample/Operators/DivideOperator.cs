@@ -4,7 +4,10 @@ namespace StrategyPatternExample
 {
     public class DivideOperator : IMathOperator
     {
-        public Operator Operator => Operator.Divide;
+        public bool IsApplicable(Operator op)
+        {
+            return op == Operator.Divide;
+        }
 
         public int Calculate(int a, int b)
         {

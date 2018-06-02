@@ -2,7 +2,10 @@
 {
     public class SubtractOperator : IMathOperator
     {
-        public Operator Operator => Operator.Substract;
+        public bool IsApplicable(Operator op)
+        {
+            return op == Operator.Substract;
+        }
 
         public int Calculate(int a, int b) => a - b;
     }
