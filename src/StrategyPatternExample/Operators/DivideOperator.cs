@@ -1,19 +1,18 @@
 ﻿using System;
 
-namespace StrategyPatternExample
+namespace StrategyPatternExample.Operators;
+
+public class DivideOperator : IMathOperator
 {
-    public class DivideOperator : IMathOperator
+    public Operator Operator => Operator.Divide;
+
+    public int Calculate(int a, int b)
     {
-        public Operator Operator => Operator.Divide;
-
-        public int Calculate(int a, int b)
+        if (b == 0)
         {
-            if (b == 0)
-            {
-                throw new DivideByZeroException();
-            }
-
-            return a / b;
+            throw new DivideByZeroException();
         }
+
+        return a / b;
     }
 }

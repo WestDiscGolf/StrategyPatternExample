@@ -1,18 +1,22 @@
-﻿using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+﻿using StrategyPatternExample.Operators;
 
-namespace StrategyPatternExample
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IMathStrategy, MathStrategy>();
+builder.Services.AddScoped<IMathOperator, AddOperator>();
+builder.Services.AddScoped<IMathOperator, SubtractOperator>();
+builder.Services.AddScoped<IMathOperator, MultipleOperator>();
+builder.Services.AddScoped<IMathOperator, DivideOperator>();
+
+var app = builder.Build();
+app.UseHttpsRedirection();
+
+app.MapGet("/", (IMathStrategy strategy) =>
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            BuildWebHost(args).Run();
-        }
+    int a = 10;
+    int b = 5;
+    int result = strategy.Calculate(a, b, Operator.Add);
+    return Results.Ok(result.ToString());
+});
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
-    }
-}
+app.Run();

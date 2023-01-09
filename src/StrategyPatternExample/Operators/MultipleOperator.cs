@@ -1,9 +1,8 @@
-﻿namespace StrategyPatternExample
-{
-    public class MultipleOperator : IMathOperator
-    {
-        public Operator Operator => Operator.Multiple;
+﻿namespace StrategyPatternExample.Operators;
 
-        public int Calculate(int a, int b) => a * b;
-    }
+public class MultipleOperator : IMathOperator
+{
+    public Operator Operator => Operator.Multiple;
+
+    public int Calculate(int a, int b) => a * b;
 }

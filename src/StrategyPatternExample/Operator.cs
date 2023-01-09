@@ -1,10 +1,9 @@
-﻿namespace StrategyPatternExample
+﻿namespace StrategyPatternExample;
+
+public enum Operator
 {
-    public enum Operator
-    {
-        Add,
-        Substract,
-        Multiple,
-        Divide
-    }
+    Add,
+    Substract,
+    Multiple,
+    Divide
 }

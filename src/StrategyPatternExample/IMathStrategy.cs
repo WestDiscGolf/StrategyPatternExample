@@ -1,7 +1,6 @@
-﻿namespace StrategyPatternExample
+﻿namespace StrategyPatternExample;
+
+public interface IMathStrategy
 {
-    public interface IMathStrategy
-    {
-        int Calculate(int a, int b, Operator op);
-    }
+    int Calculate(int a, int b, Operator op);
 }
